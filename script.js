@@ -3,7 +3,7 @@ let currentPlayer = "X";
 
 function handleCellClick(event) {
     const cell = event.target;
-    const cellIndex = cell.id.split("-")[1]; 
+    const cellIndex = cell.id.split("-")[1];
 
     if (board[cellIndex] !== "") {
         return;
@@ -11,12 +11,12 @@ function handleCellClick(event) {
 
     board[cellIndex] = currentPlayer;
     cell.textContent = currentPlayer;
+    cell.classList.add(currentPlayer);
 
     currentPlayer = currentPlayer === "X" ? "O" : "X";
 
-    console.log(board); 
+    console.log(board);
 }
-
 
 document.querySelectorAll(".cell").forEach(cell => {
     cell.addEventListener("click", handleCellClick);
